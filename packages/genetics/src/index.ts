@@ -5,7 +5,7 @@
 // All crested gecko allele data is embedded as static typed data.
 // ─────────────────────────────────────────────────────────────────────────────
 
-// Data
+// Data — alleles
 export { CRESTED_GECKO_ALLELES } from './data/crested-gecko-alleles'
 export type {
   Allele,
@@ -13,8 +13,29 @@ export type {
   InheritancePattern,
 } from './data/crested-gecko-alleles'
 
+// Data — combo morphs
+export { CRESTED_GECKO_COMBO_MORPHS } from './data/combo-morphs'
+export type { ComboMorph } from './data/combo-morphs'
+
+// Data — trait interactions
+export { CRESTED_GECKO_TRAIT_INTERACTIONS } from './data/trait-interactions'
+export type { TraitInteraction, InteractionType } from './data/trait-interactions'
+
 // Phenotype inference
-export { generatePhenotypeQuestions, resolveObservation } from './phenotype-inference'
+export {
+  generatePhenotypeQuestions,
+  resolveObservation,
+  // Hard-rule constants
+  FIXED_ALLELES,
+  NOT_AN_ALLELE,
+  PHANTOM_EXPRESSIONS,
+  C2_FORMULA,
+  C2_MISCONCEPTION,
+  LETHAL_HOMOZYGOUS,
+  EARLY_STAGE_RESEARCH,
+  EPISTATIC_DEPENDENCIES,
+  ALLELIC_PAIRS,
+} from './phenotype-inference'
 export type {
   PhenotypeQuestion,
   PhenotypeOption,
