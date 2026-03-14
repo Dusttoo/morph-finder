@@ -20,7 +20,6 @@ export interface Database {
           username: string | null
           full_name: string | null
           avatar_url: string | null
-          subscription_tier: 'free' | 'pro' | 'premium'
         }
         Insert: {
           id: string
@@ -28,7 +27,6 @@ export interface Database {
           username?: string | null
           full_name?: string | null
           avatar_url?: string | null
-          subscription_tier?: 'free' | 'pro' | 'premium'
         }
         Update: {
           id?: string
@@ -36,7 +34,6 @@ export interface Database {
           username?: string | null
           full_name?: string | null
           avatar_url?: string | null
-          subscription_tier?: 'free' | 'pro' | 'premium'
         }
       }
     }
@@ -47,7 +44,7 @@ export interface Database {
       [_ in never]: never
     }
     Enums: {
-      subscription_tier: 'free' | 'pro' | 'premium'
+      [_ in never]: never
     }
   }
 }

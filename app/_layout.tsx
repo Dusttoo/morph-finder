@@ -45,7 +45,6 @@ export default function RootLayout() {
       <AuthListener />
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="(auth)" />
-        <Stack.Screen name="(tabs)" />
         <Stack.Screen name="index" />
       </Stack>
       <StatusBar style="auto" />
