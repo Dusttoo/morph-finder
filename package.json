@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Identify your crested gecko's morph in minutes.",
   "main": "expo-router/entry",
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "start": "npx expo start",
     "android": "npx expo run:android",
@@ -15,6 +18,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@morphfinder/genetics": "*",
     "@react-native-async-storage/async-storage": "1.23.1",
     "@react-navigation/native": "^6.1.18",
     "@supabase/supabase-js": "^2.45.4",
@@ -62,11 +66,13 @@
       "@testing-library/jest-native/extend-expect"
     ],
     "transformIgnorePatterns": [
-      "node_modules/(?!((jest-)?react-native|@react-native(-community)?)|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|react-native-svg)"
+      "node_modules/(?!((jest-)?react-native|@react-native(-community)?)|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|react-native-svg|@morphfinder)"
     ],
     "testMatch": [
       "<rootDir>/tests/**/*.test.[jt]s?(x)",
-      "<rootDir>/tests/**/*.spec.[jt]s?(x)"
+      "<rootDir>/tests/**/*.spec.[jt]s?(x)",
+      "<rootDir>/packages/**/*.test.[jt]s?(x)",
+      "<rootDir>/packages/**/*.spec.[jt]s?(x)"
     ],
     "moduleFileExtensions": [
       "ts",
