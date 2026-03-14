@@ -69,6 +69,8 @@
       "node_modules/(?!((jest-)?react-native|@react-native(-community)?)|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|react-native-svg|@morphfinder)"
     ],
     "testMatch": [
+      "<rootDir>/src/**/*.test.[jt]s?(x)",
+      "<rootDir>/src/**/*.spec.[jt]s?(x)",
       "<rootDir>/tests/**/*.test.[jt]s?(x)",
       "<rootDir>/tests/**/*.spec.[jt]s?(x)",
       "<rootDir>/packages/**/*.test.[jt]s?(x)",
