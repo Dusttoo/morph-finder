@@ -7,7 +7,7 @@ export default function AuthLayout() {
   if (isLoading) return null
 
   // Authenticated users have no business on auth screens
-  if (session) return <Redirect href="/(tabs)" />
+  if (session) return <Redirect href="/" />
 
   return (
     <Stack screenOptions={{ headerShown: false }}>
