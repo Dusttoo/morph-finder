@@ -10,6 +10,14 @@ interface WizardState {
   goBack: () => void
   setAnswer: (stepIndex: number, value: string | string[]) => void
   reset: () => void
+  /**
+   * Returns true when the given step has a valid answer and the user may
+   * advance to the next step. Steps without a validation rule default to true.
+   *
+   * Step 0 — base color: requires answers[0] to be set.
+   * Steps 1–4 — not yet implemented: always completable.
+   */
+  isStepComplete: (stepIndex: number) => boolean
 }
 
 const TOTAL_STEPS = 5
@@ -41,5 +49,12 @@ export const useWizardStore = create<WizardState>((set, get) => ({
 
   reset: () => {
     set({ stepIndex: 0, answers: {} })
+  },
+
+  isStepComplete: (stepIndex) => {
+    const { answers } = get()
+    if (stepIndex === 0) return !!answers[0]
+    // Subsequent steps add their own rules as they are built (PROD-18+)
+    return true
   },
 }))

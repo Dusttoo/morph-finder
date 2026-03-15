@@ -42,6 +42,7 @@ export interface Allele {
   incompatibleWith?: string[]    // allele IDs that cannot co-occur
   lethalHomozygous?: boolean     // true if super form is fatal (Lilly White)
   earlyStageResearch?: boolean   // true = insufficient proven data, low confidence
+  imageUrl?: string              // path to a reference photo, e.g. '/images/traits/black-base.jpg'
 }
 
 // ─────────────────────────────────────────────
