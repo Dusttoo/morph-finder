@@ -21,8 +21,17 @@ export const baseColorImages: TraitImageMap = {
   WILD_TYPE:  '/images/traits/wild-type-base.jpg',
 }
 
-// Future steps — add maps here as each step is built (PROD-18 through PROD-21):
-// export const patternImages: TraitImageMap = { ... }
+// ── Step 2 — Pattern type ─────────────────────────────────────────────────────
+
+export const patternImages: TraitImageMap = {
+  HARLEQUIN:  '/images/traits/harlequin-pattern.jpg',
+  FLAME:      '/images/traits/flame-pattern.jpg',
+  TIGER:      '/images/traits/tiger-pattern.jpg',
+  PATTERNLESS: '/images/traits/patternless-pattern.jpg',
+  UNKNOWN:    '/images/traits/unknown-pattern.jpg',
+}
+
+// Future steps — add maps here as each step is built (PROD-19 through PROD-21):
 // export const structureImages: TraitImageMap = { ... }
 
 // ── Fallback colors when no image is configured ───────────────────────────────

@@ -18,6 +18,13 @@ interface Props {
   fallbackColor?: string
   /** Controls rendered dimensions (square). Defaults to 'md'. */
   size?: Size
+  /**
+   * Whether to show the colored placeholder when no image is available.
+   * Defaults to true (original behavior). Pass false when another visual
+   * (e.g. an SVG silhouette) already covers the empty state — this keeps
+   * the card clean instead of showing a redundant color block.
+   */
+  showFallback?: boolean
 }
 
 /**
@@ -28,13 +35,14 @@ interface Props {
  * be dropped into public/images/traits/ at any time without touching this
  * component — just update the traitImages.ts map.
  */
-export default function TraitImage({ src, alt, fallbackColor = '#9E9E9E', size = 'md' }: Props) {
+export default function TraitImage({ src, alt, fallbackColor = '#9E9E9E', size = 'md', showFallback = true }: Props) {
   const [failed, setFailed] = useState(false)
 
   const px = SIZE_PX[size]
-  const showFallback = src === null || failed
+  const needsFallback = src === null || failed
 
-  if (showFallback) {
+  if (needsFallback) {
+    if (!showFallback) return null
     return (
       <View
         style={[styles.placeholder, { width: px, height: px, backgroundColor: fallbackColor }]}
@@ -42,7 +50,7 @@ export default function TraitImage({ src, alt, fallbackColor = '#9E9E9E', size =
         testID="trait-image-fallback"
       >
         {src === null && (
-          <Text style={styles.questionMark}>?</Text>
+          <Text style={styles.questionMark} testID="trait-image-fallback-question">?</Text>
         )}
       </View>
     )

@@ -15,7 +15,8 @@ interface WizardState {
    * advance to the next step. Steps without a validation rule default to true.
    *
    * Step 0 — base color: requires answers[0] to be set.
-   * Steps 1–4 — not yet implemented: always completable.
+   * Step 1 — pattern type: requires answers[1] to be set.
+   * Steps 2–4 — not yet implemented: always completable.
    */
   isStepComplete: (stepIndex: number) => boolean
 }
@@ -53,8 +54,9 @@ export const useWizardStore = create<WizardState>((set, get) => ({
 
   isStepComplete: (stepIndex) => {
     const { answers } = get()
-    if (stepIndex === 0) return !!answers[0]
-    // Subsequent steps add their own rules as they are built (PROD-18+)
+    if (stepIndex === 0) return !!answers[0]  // base color
+    if (stepIndex === 1) return !!answers[1]  // pattern type
+    // Steps 2–4 add their own rules as they are built (PROD-19+)
     return true
   },
 }))
